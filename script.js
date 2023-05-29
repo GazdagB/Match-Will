@@ -2,6 +2,22 @@ const cards = document.querySelectorAll(".card");
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+let timeLeft = 30;
+let elem = document.getElementById('timer');
+if(timeLeft !== 0){
+    let timerId = setInterval(countdown, 1000);
+}
+
+
+function countdown() {
+    if (timeLeft == -1) {
+      clearTimeout(timerId);
+      doSomething();
+    } else {
+      elem.innerHTML = timeLeft + ' Másodperc Maradt';
+      timeLeft--;
+    }
+  }
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
