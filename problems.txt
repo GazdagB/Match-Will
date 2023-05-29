@@ -1,0 +1,13 @@
+// Problems to Solve for this game 
+
+//Html 
+- Structuring The Cards 
+
+//JS
+- Matching Cards if they match they wont be clickable anymore 
+- Each element is a button. We can have a loop for each button event listener 
+- We have to push each button into an array 
+
+//CSS 
+- Flipping animation 
+- We need a Grid, 4x4 
