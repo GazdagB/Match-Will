@@ -14,7 +14,7 @@ function countdown() {
       clearTimeout(timerId);
       doSomething();
     } else {
-      elem.innerHTML = timeLeft + ' Másodperc Maradt';
+      elem.innerHTML = timeLeft + ' Másodperc maradt';
       timeLeft--;
     }
   }
