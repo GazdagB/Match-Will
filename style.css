@@ -151,20 +151,31 @@ transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   }
 
-.text{
+div.text{
  display: flex;
+ width: 800px;
+ justify-content: space-between;
 }
 
 #img-godwill{
   width: 200px;
-  margin: -75px 50px 10px 50px;
+  margin: -20px 0px 10px 50px;
 }
 
 .title{
   margin-bottom: 30px;
 }
 
-
+.timer-three{
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 115%;
+}
+.timer-three h2{
+  font-size: 16rem;
+}
 @media only screen and (max-width: 600px) {
  #modal1{
   width: 90vw;
@@ -174,10 +185,16 @@ transition: 0.2s ease-in;
   width: 90vw;
  }
 
+ div.text{
+  display:flex;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  justify-content: center;
+ }
 
  .text h2{
-  font-size: 1rem;
-  margin: 80px 0 20px 0;
+  font-size: 1.5rem;
+  margin: 30px 0 20px 0;
  }
 
  .description{
@@ -186,12 +203,12 @@ transition: 0.2s ease-in;
  }
 
  img#img-godwill{
-  width: 100px;
-  margin: -70px 0px 40px 0px ;
+  width: 150px;
+  margin: 20px 0px 0px 0px ;
  }
 
  div .buttons{
-  margin-top: 80px;
+  margin-top: 50px;
  }
  
  .hidden{

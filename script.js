@@ -1,21 +1,77 @@
+//MY OWN FUNCTIONS 
+let timeLeft2 = 44;
+let timer = document.getElementById("timer"); 
+let getElement = function(id){//Selects an element by id
+    return document.getElementById(id); 
+}; 
+let selectQuery = function(clas){//Selects an element by clas (only 1)
+    return document.querySelector(`.${clas}`); 
+};
+
+let count30 = function(){
+    if(timeLeft2 < 0){
+        //CLEARINTERVAL
+        clearInterval(intervalId2)
+        //LOSE THE GAME 
+        
+        //MODAL --> ÚJRA JÁTSZÁS STB 
+        
+
+    }else{
+        timer.innerHTML=`<h4>Hátralévő idő: ${timeLeft2}</h4>`
+        timeLeft2--    
+    }
+   
+}
+
+let count3 = function(){
+    timerEl.innerHTML= `<h2 style='font-size: 16rem;'>${timeLeft}</h2>`
+    timeLeft--
+
+    if(timeLeft < 0){
+        clearInterval(intervalId);
+        timerEl.innerHTML = "<h2 style='font-size: 7rem;'>Indul!</h2>"; // Add "Indul!" message
+      
+        setTimeout(()=>{
+            timerEl.style.display = "none"
+            document.querySelector(".cards").classList.remove("hidden"); 
+            timer.innerHTML=`<h4>Hátralévő idő: 45</h4>`
+            if(timeLeft2 >=0){
+                let intervalId2 = setInterval(count30,1000); 
+            }
+            
+},1000)
+
+    }
+    
+}
+
+
 const cards = document.querySelectorAll(".card");
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
-let timeLeft = 30;
-let timeleft2 = 3; 
-let elem = document.getElementById('timer');
-let wrapper = document.querySelector(".wrapper"); 
+let timeLeft = 2; 
+let wrapper = selectQuery("wrapper");  
+let btnLaunch = selectQuery("btn-game"); 
+let modal1 = getElement("modal1"); 
+let timerEl = document.querySelector(".timer-three")
 
-let btnLaunch = document.querySelector(".btn-game"); 
-let modal1 = document.getElementById("modal1"); 
 
 btnLaunch.addEventListener("click", ()=>{
     modal1.classList.add("hidden"); 
     wrapper.style.display = null; 
+    document.querySelector(".cards").classList.add("hidden"); 
+    timerEl.style.display = null; 
 
- 
+    if(timeLeft >=0){
+       intervalId = setInterval(count3, 1000);
+    }
+     
+
+
 }); 
+
 
 
 function flipCard({target: clickedCard}) {

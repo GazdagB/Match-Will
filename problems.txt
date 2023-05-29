@@ -1,13 +1,5 @@
-// Problems to Solve for this game 
-
-//Html 
-- Structuring The Cards 
-
-//JS
-- Matching Cards if they match they wont be clickable anymore 
-- Each element is a button. We can have a loop for each button event listener 
-- We have to push each button into an array 
-
-//CSS 
-- Flipping animation 
-- We need a Grid, 4x4 
+1. Miután a játék gombra kattintottunk rá el kell tüntetni az összes kérdőjkelet 
+    - 3 Másodperces vissza számlálót tenni a helyére, majd miután lejárt megjeleníteni a játákot 
+2.Számláló hozzá adása a játék alsó részére 
+3. Ha a számláló lejárt akkor ki kell írni hogy vesztettél 
+4.Ha 8 párt talál a felhasználó ki kell írni hogy nyert 
