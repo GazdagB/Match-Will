@@ -3,21 +3,18 @@ let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
 let timeLeft = 30;
+let timeleft2 = 3; 
 let elem = document.getElementById('timer');
-if(timeLeft !== 0){
-    let timerId = setInterval(countdown, 1000);
-}
+
+let btnLaunch = document.querySelector(".btn-game"); 
+let modal1 = document.getElementById("modal1"); 
+
+btnLaunch.addEventListener("click", ()=>{
+    modal1.classList.add("hidden"); 
+ 
+}); 
 
 
-function countdown() {
-    if (timeLeft == -1) {
-      clearTimeout(timerId);
-      doSomething();
-    } else {
-      elem.innerHTML = timeLeft + ' Másodperc maradt';
-      timeLeft--;
-    }
-  }
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
