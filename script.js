@@ -1,5 +1,5 @@
 //MY OWN FUNCTIONS 
-let timeLeft2 = 44;
+let timeLeft2 = 39;
 let timer = document.getElementById("timer"); 
 let getElement = function(id){//Selects an element by id
     return document.getElementById(id); 
@@ -30,12 +30,12 @@ let count3 = function(){
 
     if(timeLeft < 0){
         clearInterval(intervalId);
-        timerEl.innerHTML = "<h2 style='font-size: 7rem;'>Indul!</h2>"; // Add "Indul!" message
+        timerEl.innerHTML = "<h2 style='font-size: 6rem;'>Indul!</h2>"; // Add "Indul!" message
       
         setTimeout(()=>{
             timerEl.style.display = "none"
             document.querySelector(".cards").classList.remove("hidden"); 
-            timer.innerHTML=`<h4>Hátralévő idő: 45</h4>`
+            timer.innerHTML=`<h4>Hátralévő idő: 40</h4>`
             if(timeLeft2 >=0){
                 let intervalId2 = setInterval(count30,1000); 
             }

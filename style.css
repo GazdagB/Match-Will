@@ -172,6 +172,7 @@ div.text{
   justify-content: center;
   align-items: center;
   height: 115%;
+  color: #101e36;
 }
 .timer-three h2{
   font-size: 16rem;
@@ -211,8 +212,4 @@ div.text{
   margin-top: 50px;
  }
  
- .hidden{
-  display: none;
- }
-
 }
