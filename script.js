@@ -5,12 +5,15 @@ let disableDeck = false;
 let timeLeft = 30;
 let timeleft2 = 3; 
 let elem = document.getElementById('timer');
+let wrapper = document.querySelector(".wrapper"); 
 
 let btnLaunch = document.querySelector(".btn-game"); 
 let modal1 = document.getElementById("modal1"); 
 
 btnLaunch.addEventListener("click", ()=>{
     modal1.classList.add("hidden"); 
+    wrapper.style.display = null; 
+
  
 }); 
 

@@ -151,8 +151,8 @@ transition: 0.2s ease-in;
   transition: 0.2s ease-in;
   }
 
-.container{
-  display: flex;
+.text{
+ display: flex;
 }
 
 #img-godwill{
@@ -162,4 +162,40 @@ transition: 0.2s ease-in;
 
 .title{
   margin-bottom: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+ #modal1{
+  width: 90vw;
+ }
+
+ .wrapper{
+  width: 90vw;
+ }
+
+
+ .text h2{
+  font-size: 1rem;
+  margin: 80px 0 20px 0;
+ }
+
+ .description{
+  font-size: 15px;
+  margin: 25px 0px 0px 0px;
+ }
+
+ img#img-godwill{
+  width: 100px;
+  margin: -70px 0px 40px 0px ;
+ }
+
+ div .buttons{
+  margin-top: 80px;
+ }
+ 
+ .hidden{
+  display: none;
+ }
+
 }
