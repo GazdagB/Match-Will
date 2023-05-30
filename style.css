@@ -118,7 +118,7 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   padding: 40px 40px;
 }
 
-#modal-win{
+#modal-win , #modal-lose{
   background-color: #fff;
   width: 900px;
   height: 600px;
@@ -128,8 +128,8 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   display: flex;
 }
 
-#modal-win.hidden, .hidden{
-  display: none; !important
+#modal-lose.hidden ,#modal-win.hidden, .hidden{
+  display: none !important;
 }
 
 div.buttons{
@@ -164,12 +164,21 @@ div.buttons .btn-game, .btn-more {
   border-radius: 8px;
 }
 
+.btn-new-game-lose{
+  background: rgb(181, 255, 0);
+  border: none;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+}
 .btn-game{
   background: rgb(181, 255, 0);
   width: 100px;
 }
 
-.btn-game:hover ,.btn-code:hover{
+.btn-game:hover ,.btn-code:hover,.btn-new-game-lose:hover{
 background:rgb(134, 211, 46); 
 transition: 0.2s ease-in;
 }
@@ -194,7 +203,7 @@ div.text{
   margin-bottom: 30px;
 }
 
-.win{
+.win , .lose{
   width: 450px;
   height: 100%;
   display: flex;
@@ -204,6 +213,7 @@ div.text{
   justify-content: end;
 }
 
+
 .congrats{
   font-size: 3.8rem;
 }
@@ -211,11 +221,11 @@ div.text{
 .sucsess{
  margin: 0px 0px 20px 0px;
 }
-.win img{
+.win img, .lose img{
   width: 100%;
 }
 
-.win .goodwill{
+.win .goodwill, .lose .goodwill{
   width: 150px;
   position: absolute;
   top: 40px;
@@ -226,6 +236,10 @@ div.text{
   margin-top: 150px;
 }
 
+.buttons-lose{
+  margin-top: 250px;
+
+}
 .timer-three{
   font-size: 8rem;
   display: flex;

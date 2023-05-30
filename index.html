@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="wrapper" style="display: none;">
-        <div class="timer-three hidden" style="display: none;font-size: 10rem;"><h2>3</h2></div>
+        <div class="timer-three" style="display: none;font-size: 10rem;"><h2>3</h2></div>
         <ul class="cards">
 
             <li class="card">
@@ -162,7 +162,7 @@
         </ul>
         <div id="timer" class="count-down"></div>
     </div>
-    <div id="modal1" class="">
+    <div id="modal1" class="modal">
         <div class="container">
             
             <div class="text">
@@ -180,8 +180,24 @@
         </div>
     </div>
 
-
-    <div id="modal-win" class="hidden" >
+    <div id="modal-lose" class="modal hidden" >
+        <div>
+            <h2 class="congrats">Sajnáljuk! </h2>
+            <h2 class="sucsess">Most nem sikerült... </h2>
+            <h2>Próbálja újra!</h2>
+        
+            <div class="buttons-lose">
+                <button  class="btn-new-game-lose">Újra Próbálom</button>
+            </div>
+        </div>
+        
+        <div class="lose">
+            <img class="goodwill" src="images/godwill-logo.svg" alt="">
+            <img class="lost" src="images/lose.png" alt="">
+        </div>
+        
+    </div>
+    <div id="modal-win" class=" modal " >
         <div>
             <h2 class="congrats">Gratulálunk! </h2>
             <h2 class="sucsess">Teljesítette a memória kihívást!</h2>

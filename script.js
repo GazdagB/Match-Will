@@ -1,52 +1,43 @@
-//MY OWN FUNCTIONS 
-let timeLeft2 = 39;
-let timer = document.getElementById("timer"); 
+
+document.addEventListener("DOMContentLoaded", function() {
 
 
+//SELECT ID 
 let getElement = function(id){//Selects an element by id
     return document.getElementById(id); 
 }; 
+//SELECT CLASS
 let selectQuery = function(clas){//Selects an element by clas (only 1)
     return document.querySelector(`.${clas}`); 
 };
 
-let count30 = function(){
-    if(timeLeft2 < 0){
-        //CLEARINTERVAL
-        clearInterval(intervalId2)
-        //LOSE THE GAME 
 
-        //MODAL --> ÚJRA JÁTSZÁS STB 
-        
 
-    }else{
-        timer.innerHTML=`<h4>Hátralévő idő: ${timeLeft2}</h4>`
-        timeLeft2--    
-    }
-   
-}
-
-let count3 = function(){
-    timerEl.innerHTML= `<h2 style='font-size: 16rem;'>${timeLeft}</h2>`
-    timeLeft--
-
-    if(timeLeft < 0){
-        clearInterval(intervalId);
-        timerEl.innerHTML = "<h2 style='font-size: 6rem;'>Indul!</h2>"; // Add "Indul!" message
-      
-        setTimeout(()=>{
-            timerEl.style.display = "none"
-            document.querySelector(".cards").classList.remove("hidden"); 
-            timer.innerHTML=`<h4>Hátralévő idő: 40</h4>`
-            if(timeLeft2 >=0){
-                let intervalId2 = setInterval(count30,1000); 
-            }
-            
-},1000)
-
-    }
+//VARIABLE DECLARATIONS
+    //TIMERS 
+    let gameTimeLeft = 1;
+    let timer = document.getElementById("timer"); 
+    let btnNewGame = selectQuery("btn-new-game"); 
+    let cuponCode = selectQuery("cupon-code");
+    const cards = document.querySelectorAll(".card");
+    let matched = 0;
+    let cardOne, cardTwo;
+    let disableDeck = false;
+    let timeLeft = 2; 
+    let wrapper = selectQuery("wrapper");  
+    let modalLose = getElement("modal-lose"); 
+    let btnLaunch = selectQuery("btn-game"); 
+    let modal1 = getElement("modal1");     
+    let timerEl = document.querySelector(".timer-three")
+    let btnLostNew = selectQuery("btn-new-game-lose");
+    let intervalId,intervalId2; 
+    let timerOver = false;
     
-}
+ 
+    
+//TIMER 30SEC 
+
+
 
 let copyText = function(htmlElement){
     if(!htmlElement){
@@ -63,10 +54,9 @@ let copyText = function(htmlElement){
 
 }
 
-let btnNewGame = selectQuery("btn-new-game"); 
 
 
-selectQuery("cupon-code").addEventListener("click", ()=>{
+cuponCode.addEventListener("click", ()=>{
     copyText(document.getElementById("sale"))
     selectQuery("copy").classList.remove("fa-solid","fa-copy")
     selectQuery("copy").classList.add("fa-sharp","fa-solid", "fa-check")
@@ -74,35 +64,67 @@ selectQuery("cupon-code").addEventListener("click", ()=>{
         selectQuery("copy").classList.remove("fa-sharp","fa-solid", "fa-check")
         selectQuery("copy").classList.add("fa-solid","fa-copy")
     },2000)
-    console.log(`click${clickCount}`);
-    
 })
 
-const cards = document.querySelectorAll(".card");
-let matched = 0;
-let cardOne, cardTwo;
-let disableDeck = false;
-let timeLeft = 2; 
-let wrapper = selectQuery("wrapper");  
-let btnLaunch = selectQuery("btn-game"); 
-let modal1 = getElement("modal1"); 
-let timerEl = document.querySelector(".timer-three")
 
 
-btnLaunch.addEventListener("click", ()=>{
-    modal1.classList.add("hidden"); 
+
+
+
+
+let modals = document.querySelectorAll(".modal")
+
+
+let gameInit = function() {
+    shuffleCard();
+    timeLeft = 2; 
+    gameTimeLeft = 45;
+    timerEl.innerHTML = "<h3>3</h3>"
+    modals.forEach(elem => {
+        elem.classList.add("hidden");
+    }); 
+
     wrapper.style.display = null; 
+
     document.querySelector(".cards").classList.add("hidden"); 
+
     timerEl.style.display = null; 
 
-    if(timeLeft >=0){
-       intervalId = setInterval(count3, 1000);
-    }
-    
-}); 
+    let interval1 = setInterval(() => {
+        if (timeLeft > 0) {
+            timerEl.innerHTML = `<h3>${timeLeft}</h3>`;
+            timeLeft--;
+        } else {
+            clearInterval(interval1);
+            timerEl.innerHTML = "<h3>Indul!</h3>";
+            timerOver = true; 
+            setTimeout(() => {
+                timerEl.style.display = "none"; 
+                document.querySelector(".cards").classList.remove("hidden");
+                let interval2 = setInterval(() => {
+                    if (gameTimeLeft >= 0) {
+                        // Végrehajtandó kód a játék közbeni visszaszámláláshoz
+
+                        timer.innerHTML = `<h4>A hátralévó idő: ${gameTimeLeft}</h4>`
+                        gameTimeLeft--;
+                    } else {
+                        
+                        
+                        clearInterval(interval2);
+                        modalLose.classList.remove("hidden"); 
+                        timer.innerText= "" ;
+                        // Végrehajtandó kód, amikor lejár a játék időtartama
+                    }
+                }, 1000);
+            }, 1000);
+        }
+    }, 1000);
+};
+
+btnLaunch.addEventListener("click", gameInit); 
 
 
-
+btnLostNew.addEventListener("click",gameInit);
 
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
@@ -161,9 +183,7 @@ cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
 
-btnNewGame.addEventListener("click", function(){
-    getElement("modal-win").classList.add("hidden"); 
-    timer.innerHTML=`<h4>Hátralévő idő: 45</h4>`
-    timeLeft2 = 44; 
-    shuffleCard();
-})
+
+btnNewGame.addEventListener("click",gameInit)
+
+});
