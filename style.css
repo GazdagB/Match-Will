@@ -40,7 +40,6 @@ position: absolute;
 border-radius: 7px;
 backface-visibility: hidden;
 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-
 }
 
 .cards{
@@ -119,15 +118,44 @@ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   padding: 40px 40px;
 }
 
-.hidden{
-  display: none; 
+#modal-win{
+  background-color: #fff;
+  width: 900px;
+  height: 600px;
+  position: absolute;
+  border-radius: 20px;
+  padding: 40px 40px;
+  display: flex;
+}
+
+#modal-win.hidden, .hidden{
+  display: none; !important
 }
 
 div.buttons{
   margin-top: 300px;
 }
 
-div.buttons .btn-game, .btn-more{
+div.buttons .btn-game, .btn-more {
+  margin-left: 10px;
+  padding: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-code{
+  border: none;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  background: rgb(181, 255, 0);
+}
+
+.btn-new-game{
   margin-left: 10px;
   padding: 15px;
   font-weight: 600;
@@ -141,12 +169,12 @@ div.buttons .btn-game, .btn-more{
   width: 100px;
 }
 
-.btn-game:hover{
+.btn-game:hover ,.btn-code:hover{
 background:rgb(134, 211, 46); 
 transition: 0.2s ease-in;
 }
 
-.btn-more:hover{
+.btn-more:hover, .btn-new-game:hover{
   background: #adacac; 
   transition: 0.2s ease-in;
   }
@@ -166,6 +194,38 @@ div.text{
   margin-bottom: 30px;
 }
 
+.win{
+  width: 450px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px 0px;
+  align-items: center; 
+  justify-content: end;
+}
+
+.congrats{
+  font-size: 3.8rem;
+}
+
+.sucsess{
+ margin: 0px 0px 20px 0px;
+}
+.win img{
+  width: 100%;
+}
+
+.win .goodwill{
+  width: 150px;
+  position: absolute;
+  top: 40px;
+  right: 60px;
+}
+
+.buttons-win{
+  margin-top: 150px;
+}
+
 .timer-three{
   font-size: 8rem;
   display: flex;
@@ -177,11 +237,43 @@ div.text{
 .timer-three h2{
   font-size: 16rem;
 }
+
+.copy{
+  width: 15px;
+}
+
+.cupon-code{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  height: 50px;
+  padding: 0px 0px 0px 20px;
+  border-radius: 5px;
+  background-color: #c4cbd6;
+  cursor: pointer;
+}
+
+.cupon-code .image{
+  border: 1px solid grey;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 5px 5px 0px;
+  
+}
 @media only screen and (max-width: 600px) {
  #modal1{
   width: 90vw;
  }
 
+ #modal-win{
+  width: 90vw;
+
+ }
  .wrapper{
   width: 90vw;
  }
@@ -212,4 +304,20 @@ div.text{
   margin-top: 50px;
  }
  
+ #modal-win .congrats{
+  font-size: 3rem;
+  margin: 50px 0px 20px 0px ;
+ }
+
+ #modal-win .buttons-win{
+  margin-top: 50px;
+ }
+
+ #modal-win .cupon-code{
+  margin-top: 40px;
+ }
+
+ #modal-win .celebrate{
+display: none;
+ }
 }

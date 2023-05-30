@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/5c7f4e59b4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper" style="display: none;">
@@ -178,5 +179,34 @@
             <button class="btn btn-more">Tudj meg többet</button>
         </div>
     </div>
+
+
+    <div id="modal-win" class="" >
+        <div>
+            <h2 class="congrats">Gratulálunk! </h2>
+            <h2 class="sucsess">Teljesítette a memória kihívást!</h2>
+            <h2>Nyereménye:</h2>
+            <h3>15% Kupon a Goodwill weboldalán</h3>
+
+            <div class="cupon-code">
+                <p id="sale">MEMO15</p>
+                <div class="image">
+                    <i class="fa-solid fa-copy copy"></i>
+                </div>
+            </div>
+        
+            <div class="buttons-win">
+                <button onclick="window.location.href='https://goodwill.hu/'" class="btn-code">Felhasználom a kódómat</button>
+                <button class="btn-new-game">Új játék</button>
+            </div>
+        </div>
+        
+        <div class="win">
+            <img class="goodwill" src="images/godwill-logo.svg" alt="">
+            <img class="celebrate" src="images/win-01.png" alt="">
+        </div>
+        
+    </div>
+
 </body>
 </html>

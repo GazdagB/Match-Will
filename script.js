@@ -1,6 +1,8 @@
 //MY OWN FUNCTIONS 
 let timeLeft2 = 39;
 let timer = document.getElementById("timer"); 
+
+
 let getElement = function(id){//Selects an element by id
     return document.getElementById(id); 
 }; 
@@ -13,7 +15,7 @@ let count30 = function(){
         //CLEARINTERVAL
         clearInterval(intervalId2)
         //LOSE THE GAME 
-        
+
         //MODAL --> ÚJRA JÁTSZÁS STB 
         
 
@@ -46,6 +48,35 @@ let count3 = function(){
     
 }
 
+let copyText = function(htmlElement){
+    if(!htmlElement){
+        return; 
+    }
+
+    let elementText = htmlElement.innerText;
+    let inputElement = document.createElement('input');
+    inputElement.setAttribute('value', elementText); 
+    document.body.appendChild(inputElement);
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.parentNode.removeChild(inputElement); 
+
+}
+
+let btnNewGame = selectQuery("btn-new-game"); 
+
+
+selectQuery("cupon-code").addEventListener("click", ()=>{
+    copyText(document.getElementById("sale"))
+    selectQuery("copy").classList.remove("fa-solid","fa-copy")
+    selectQuery("copy").classList.add("fa-sharp","fa-solid", "fa-check")
+    setTimeout(()=>{
+        selectQuery("copy").classList.remove("fa-sharp","fa-solid", "fa-check")
+        selectQuery("copy").classList.add("fa-solid","fa-copy")
+    },2000)
+    console.log(`click${clickCount}`);
+    
+})
 
 const cards = document.querySelectorAll(".card");
 let matched = 0;
@@ -67,10 +98,9 @@ btnLaunch.addEventListener("click", ()=>{
     if(timeLeft >=0){
        intervalId = setInterval(count3, 1000);
     }
-     
-
-
+    
 }); 
+
 
 
 
@@ -92,8 +122,9 @@ function matchCards(img1, img2) {
         matched++;
         if(matched == 8) {
             setTimeout(() => {
-                return shuffleCard();
+                return document.getElementById("modal-win").classList.remove("hidden"); 
             }, 1000);
+            
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
@@ -129,3 +160,10 @@ shuffleCard();
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
+
+btnNewGame.addEventListener("click", function(){
+    getElement("modal-win").classList.add("hidden"); 
+    timer.innerHTML=`<h4>Hátralévő idő: 45</h4>`
+    timeLeft2 = 44; 
+    shuffleCard();
+})
