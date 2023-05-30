@@ -32,6 +32,7 @@ let selectQuery = function(clas){//Selects an element by clas (only 1)
     let btnLostNew = selectQuery("btn-new-game-lose");
     let intervalId,intervalId2; 
     let timerOver = false;
+    let interval2;
     
  
     
@@ -96,12 +97,12 @@ let gameInit = function() {
             timeLeft--;
         } else {
             clearInterval(interval1);
-            timerEl.innerHTML = "<h3>Indul!</h3>";
+            timerEl.innerHTML = "<h3 style='font-size: 7rem' >Indul!</h3>";
             timerOver = true; 
             setTimeout(() => {
                 timerEl.style.display = "none"; 
                 document.querySelector(".cards").classList.remove("hidden");
-                let interval2 = setInterval(() => {
+                interval2 = setInterval(() => {
                     if (gameTimeLeft >= 0) {
                         // Végrehajtandó kód a játék közbeni visszaszámláláshoz
 
@@ -143,6 +144,8 @@ function matchCards(img1, img2) {
     if(img1 === img2) {
         matched++;
         if(matched == 8) {
+            clearInterval(interval2);
+            timer.innerText= "";
             setTimeout(() => {
                 return document.getElementById("modal-win").classList.remove("hidden"); 
             }, 1000);
